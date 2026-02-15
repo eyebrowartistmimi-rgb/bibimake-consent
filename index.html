@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立ち会い施術同意書 | BIBIMAKE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #FAFAFA;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B6B6B;
+            --text-light: #9A9A9A;
+            --accent: #C4A47C;
+            --accent-light: #E8DFD3;
+            --border: #EBEBEB;
+            --shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 24px;
+            padding-bottom: 60px;
+        }
+
+        header {
+            text-align: center;
+            padding: 48px 0 40px;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .logo-sub {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .page-title {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .page-description {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 32px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            height: 1px;
+            width: 60px;
+            background: var(--border);
+        }
+
+        .divider-icon {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            transform: rotate(45deg);
+            margin: 0 16px;
+        }
+
+        .assistant-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .assistant-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow);
+        }
+
+        .assistant-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .assistant-card:active {
+            transform: translateY(0);
+            background: var(--accent-light);
+        }
+
+        .assistant-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .assistant-number {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-light);
+            border-radius: 50%;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .assistant-name {
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .download-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .assistant-card:hover .download-icon {
+            color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .assistant-card {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .assistant-card:nth-child(1) { animation-delay: 0.05s; }
+        .assistant-card:nth-child(2) { animation-delay: 0.1s; }
+        .assistant-card:nth-child(3) { animation-delay: 0.15s; }
+        .assistant-card:nth-child(4) { animation-delay: 0.2s; }
+        .assistant-card:nth-child(5) { animation-delay: 0.25s; }
+        .assistant-card:nth-child(6) { animation-delay: 0.3s; }
+        .assistant-card:nth-child(7) { animation-delay: 0.35s; }
+        .assistant-card:nth-child(8) { animation-delay: 0.4s; }
+        .assistant-card:nth-child(9) { animation-delay: 0.45s; }
+        .assistant-card:nth-child(10) { animation-delay: 0.5s; }
+        .assistant-card:nth-child(11) { animation-delay: 0.55s; }
+        .assistant-card:nth-child(12) { animation-delay: 0.6s; }
+
+        .instruction {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .instruction-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .instruction-title svg {
+            width: 16px;
+            height: 16px;
+            color: var(--accent);
+        }
+
+        .instruction-text {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">BIBIMAKE</div>
+            <div class="logo-sub">Artmake Academy</div>
+        </header>
+
+        <section class="title-section">
+            <h1 class="page-title">立ち会い施術同意書</h1>
+            <p class="page-description">
+                担当アシスタントを選択して<br>同意書をダウンロードしてください
+            </p>
+        </section>
+
+        <div class="instruction">
+            <div class="instruction-title">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+                </svg>
+                ご利用方法
+            </div>
+            <p class="instruction-text">
+                名前をタップするとPDFがダウンロードされます
+            </p>
+        </div>
+
+        <div class="divider">
+            <div class="divider-icon"></div>
+        </div>
+
+        <div class="assistant-list">
+            <a href="立ち会い施術同意書_菊地美海.pdf" download class="assistant-card">
+                <div class="assistant-info">
+                    <span class="assistant-number">1</span>
+                    <span class="assistant-name">菊地　美海</span>
+                </div>
+                <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+
+            <a href="立ち会い施術同意書_江崎稜子.pdf" download class="assistant-card">
+                <div class="assistant-info">
+                    <span class="assistant-number">2</span>
+                    <span class="assistant-name">江崎　稜子</span>
+                </div>
+                <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+
+            <a href="立ち会い施術同意書_緑川知佳.pdf" download class="assistant-card">
+                <div class="assistant-info">
+                    <span class="assistant-number">3</span>
+                    <span class="assistant-name">緑川　知佳</span>
+                </div>
+                <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+
+            <a href="立ち会い施術同意書_茂呂恵理.pdf" download class="assistant-card">
+                <div class="assistant-info">
+                    <span class="assistant-number">4</span>
+                    <span class="assistant-name">茂呂　恵理</span>
+                </div>
+                <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+
+            <a href="立ち会い施術同意書_柴田萌.pdf" download class="assistant-card">
+                <div class="assistant-info">
+                    <span class="assistant-number">5</span>
+                    <span class="assistant-name">柴田　萌</span>
+                </div>
+                <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+
+            <a href="立ち会い施術同意書_屋良友花里.pdf" download class="assistant-card">
+                <div class="assistant-info">
+                    <span class="assistant-number">6</span>
+                    <span class="assistant-name">屋良　友花里</span>
+                </div>
+                <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+
+            <a href="立ち会い施術同意書_弥永扶美.pdf" download class="assistant-card">
+                <div class="assistant-info">
+                    <span class="assistant-number">7</span>
+                    <span class="assistant-name">弥永　扶美</span>
+                </div>
+                <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+
+            <a href="立ち会い施術同意書_青木恵子.pdf" download class="assistant-card">
+                <div class="assistant-info">
+                    <span class="assistant-number">8</span>
+                    <span class="assistant-name">青木　恵子</span>
+                </div>
+                <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+
+            <a href="立ち会い施術同意書_内藤紗貴.pdf" download class="assistant-card">
+                <div class="assistant-info">
+                    <span class="assistant-number">9</span>
+                    <span class="assistant-name">内藤　紗貴</span>
+                </div>
+                <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+
+            <a href="立ち会い施術同意書_松永亜美.pdf" download class="assistant-card">
+                <div class="assistant-info">
+                    <span class="assistant-number">10</span>
+                    <span class="assistant-name">松永　亜美</span>
+                </div>
+                <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+
+            <a href="立ち会い施術同意書_菊地未久.pdf" download class="assistant-card">
+                <div class="assistant-info">
+                    <span class="assistant-number">11</span>
+                    <span class="assistant-name">菊地　未久</span>
+                </div>
+                <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+
+            <a href="立ち会い施術同意書_菊田采伽.pdf" download class="assistant-card">
+                <div class="assistant-info">
+                    <span class="assistant-number">12</span>
+                    <span class="assistant-name">菊田　采伽</span>
+                </div>
+                <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+        </div>
+
+        <footer>
+            <p class="footer-text">© 2025 BIBIMAKE All Rights Reserved</p>
+            <p class="footer-logo">BIBIMAKE</p>
+        </footer>
+    </div>
+</body>
+</html>
